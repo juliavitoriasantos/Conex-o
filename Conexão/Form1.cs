@@ -61,11 +61,13 @@ namespace Conexão
             {
                 btnligar.BackColor = Color.Green;
                 btndesligar.BackColor = Color.Green;
+                lblstatus.BackColor = Color.Green;
             }
             else if (mensagem.Contains("Sem conexão") || mensagem.Contains("Erro"))
             {
                 btnligar.BackColor = Color.Red;
                 btndesligar.BackColor = Color.Red;
+                lblstatus.BackColor = Color.Red;
             }
             else
             {

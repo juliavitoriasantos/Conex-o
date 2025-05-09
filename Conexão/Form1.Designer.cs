@@ -40,11 +40,11 @@
             // 
             this.lblstatus.AutoSize = true;
             this.lblstatus.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblstatus.Location = new System.Drawing.Point(355, 142);
+            this.lblstatus.Location = new System.Drawing.Point(334, 142);
             this.lblstatus.Name = "lblstatus";
-            this.lblstatus.Size = new System.Drawing.Size(35, 13);
+            this.lblstatus.Size = new System.Drawing.Size(110, 26);
             this.lblstatus.TabIndex = 0;
-            this.lblstatus.Text = "label1";
+            this.lblstatus.Text = "CONEXÂO/ STATUS\r\n          DA REDE\r\n";
             this.lblstatus.Click += new System.EventHandler(this.lblstatus_Click);
             // 
             // btnverificar
