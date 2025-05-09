@@ -39,7 +39,8 @@
             // lblstatus
             // 
             this.lblstatus.AutoSize = true;
-            this.lblstatus.Location = new System.Drawing.Point(374, 102);
+            this.lblstatus.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblstatus.Location = new System.Drawing.Point(355, 142);
             this.lblstatus.Name = "lblstatus";
             this.lblstatus.Size = new System.Drawing.Size(35, 13);
             this.lblstatus.TabIndex = 0;
@@ -48,37 +49,43 @@
             // 
             // btnverificar
             // 
-            this.btnverificar.Location = new System.Drawing.Point(330, 255);
+            this.btnverificar.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnverificar.Location = new System.Drawing.Point(337, 314);
             this.btnverificar.Name = "btnverificar";
-            this.btnverificar.Size = new System.Drawing.Size(112, 62);
+            this.btnverificar.Size = new System.Drawing.Size(112, 39);
             this.btnverificar.TabIndex = 1;
             this.btnverificar.Text = "Verificar";
-            this.btnverificar.UseVisualStyleBackColor = true;
+            this.btnverificar.UseVisualStyleBackColor = false;
             // 
             // btnligar
             // 
-            this.btnligar.Location = new System.Drawing.Point(84, 41);
+            this.btnligar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnligar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnligar.Location = new System.Drawing.Point(142, 132);
             this.btnligar.Name = "btnligar";
-            this.btnligar.Size = new System.Drawing.Size(75, 23);
+            this.btnligar.Size = new System.Drawing.Size(129, 33);
             this.btnligar.TabIndex = 2;
             this.btnligar.Text = "Ligar";
-            this.btnligar.UseVisualStyleBackColor = true;
+            this.btnligar.UseVisualStyleBackColor = false;
             this.btnligar.Click += new System.EventHandler(this.btnligar_Click);
             // 
             // btndesligar
             // 
-            this.btndesligar.Location = new System.Drawing.Point(84, 144);
+            this.btndesligar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btndesligar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btndesligar.Location = new System.Drawing.Point(528, 132);
             this.btndesligar.Name = "btndesligar";
-            this.btndesligar.Size = new System.Drawing.Size(75, 23);
+            this.btndesligar.Size = new System.Drawing.Size(129, 33);
             this.btndesligar.TabIndex = 3;
             this.btndesligar.Text = "Desligar";
-            this.btndesligar.UseVisualStyleBackColor = true;
+            this.btndesligar.UseVisualStyleBackColor = false;
             this.btndesligar.Click += new System.EventHandler(this.btndesligar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btndesligar);
             this.Controls.Add(this.btnligar);

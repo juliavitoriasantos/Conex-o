@@ -56,6 +56,23 @@ namespace Conexão
         private void AtualizarStatus(string mensagem)
         {
             lblstatus.Text = mensagem;
+
+            if (mensagem.Contains("Conectado"))
+            {
+                btnligar.BackColor = Color.Green;
+                btndesligar.BackColor = Color.Green;
+            }
+            else if (mensagem.Contains("Sem conexão") || mensagem.Contains("Erro"))
+            {
+                btnligar.BackColor = Color.Red;
+                btndesligar.BackColor = Color.Red;
+            }
+            else
+            {
+                // Cor neutra se for outro tipo de mensagem
+                btnligar.BackColor = SystemColors.Control;
+                btndesligar.BackColor = SystemColors.Control;
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -90,5 +107,6 @@ namespace Conexão
             timerrede.Stop();
             AtualizarStatus("Monitoramento desativado");
         }
+
     }
 }
