@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.timerrede = new System.Windows.Forms.Timer(this.components);
             this.lblstatus = new System.Windows.Forms.Label();
-            this.btnverificar = new System.Windows.Forms.Button();
             this.btnligar = new System.Windows.Forms.Button();
             this.btndesligar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -40,28 +39,18 @@
             // 
             this.lblstatus.AutoSize = true;
             this.lblstatus.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblstatus.Location = new System.Drawing.Point(334, 142);
+            this.lblstatus.Location = new System.Drawing.Point(336, 203);
             this.lblstatus.Name = "lblstatus";
             this.lblstatus.Size = new System.Drawing.Size(110, 26);
             this.lblstatus.TabIndex = 0;
             this.lblstatus.Text = "CONEXÂO/ STATUS\r\n          DA REDE\r\n";
             this.lblstatus.Click += new System.EventHandler(this.lblstatus_Click);
             // 
-            // btnverificar
-            // 
-            this.btnverificar.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnverificar.Location = new System.Drawing.Point(337, 314);
-            this.btnverificar.Name = "btnverificar";
-            this.btnverificar.Size = new System.Drawing.Size(112, 39);
-            this.btnverificar.TabIndex = 1;
-            this.btnverificar.Text = "Verificar";
-            this.btnverificar.UseVisualStyleBackColor = false;
-            // 
             // btnligar
             // 
             this.btnligar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnligar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnligar.Location = new System.Drawing.Point(142, 132);
+            this.btnligar.Location = new System.Drawing.Point(129, 203);
             this.btnligar.Name = "btnligar";
             this.btnligar.Size = new System.Drawing.Size(129, 33);
             this.btnligar.TabIndex = 2;
@@ -73,7 +62,7 @@
             // 
             this.btndesligar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btndesligar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btndesligar.Location = new System.Drawing.Point(528, 132);
+            this.btndesligar.Location = new System.Drawing.Point(542, 196);
             this.btndesligar.Name = "btndesligar";
             this.btndesligar.Size = new System.Drawing.Size(129, 33);
             this.btndesligar.TabIndex = 3;
@@ -89,7 +78,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btndesligar);
             this.Controls.Add(this.btnligar);
-            this.Controls.Add(this.btnverificar);
             this.Controls.Add(this.lblstatus);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -103,7 +91,6 @@
 
         private System.Windows.Forms.Timer timerrede;
         private System.Windows.Forms.Label lblstatus;
-        private System.Windows.Forms.Button btnverificar;
         private System.Windows.Forms.Button btnligar;
         private System.Windows.Forms.Button btndesligar;
     }
