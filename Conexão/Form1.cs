@@ -39,35 +39,64 @@ namespace Conexão
 
         private async void TimerRede_Tick(object sender, EventArgs e)
         {
+            string[] enderecos = new string[]
+    {
+        "8.8.8.8",          // Google DNS
+        "1.1.1.1",          // Cloudflare DNS
+        "www.microsoft.com", // Teste DNS + resolução de nome + porta
+        "www.google.com"    // Idem
+    };
+
+            bool conectado = false;
+
             using (Ping ping = new Ping())
             {
-                try
+                foreach (var endereco in enderecos)
                 {
-                    var reply = await ping.SendPingAsync("8.8.8.8", 2000);
-                    if (reply.Status == IPStatus.Success)
-                        AtualizarStatus("Conectado à internet");
-                    else
-                        AtualizarStatus("Sem conexão");
-                }
-                catch
-                {
-                    AtualizarStatus("Erro ao verificar conexão");
+                    try
+                    {
+                        var reply = await ping.SendPingAsync(endereco, 2000);
+                        if (reply.Status == IPStatus.Success)
+                        {
+                            conectado = true;
+                            break;
+                        }
+                    }
+                    catch
+                    {
+                        // Ignora falhas individuais
+                    }
                 }
             }
+
+            if (conectado)
+                AtualizarStatus("Conectado à internet");
+            else
+                AtualizarStatus("Sem conexão");
         }
 
         private void AtualizarStatus(string mensagem)
         {
             if (lblstatus.InvokeRequired)
             {
-                // Se não estivermos na thread da UI, invoca o método na thread da UI
-                lblstatus.Invoke(new MethodInvoker(delegate { lblstatus.Text = mensagem; }));
+                lblstatus.Invoke(new MethodInvoker(() => AtualizarStatus(mensagem)));
+                return;
             }
+
+            lblstatus.Text = mensagem;
+
+            Color cor;
+            if (mensagem.Contains("Conectado"))
+                cor = Color.Green;
+            else if (mensagem.Contains("Sem conexão") || mensagem.Contains("Erro"))
+                cor = Color.Red;
             else
-            {
-                // Se já estivermos na thread da UI, faz a atualização diretamente
-                lblstatus.Text = mensagem;
-            }
+                cor = SystemColors.Control;
+
+            // Atualiza a cor de fundo
+            lblstatus.BackColor = cor;
+            btnligar.BackColor = cor;
+            btndesligar.BackColor = cor;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
