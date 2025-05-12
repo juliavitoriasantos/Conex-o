@@ -13,6 +13,8 @@ namespace Conexão
 {
     public partial class Form1 : Form
     {
+      
+
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace Conexão
             timerrede.Interval = 10000; // 10 segundos
             timerrede.Tick += TimerRede_Tick;
             timerrede.Start();
+            this.FormClosing += Form1_FormClosing;
         }
 
         private void OnNetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
@@ -55,25 +58,15 @@ namespace Conexão
 
         private void AtualizarStatus(string mensagem)
         {
-            lblstatus.Text = mensagem;
-
-            if (mensagem.Contains("Conectado"))
+            if (lblstatus.InvokeRequired)
             {
-                btnligar.BackColor = Color.Green;
-                btndesligar.BackColor = Color.Green;
-                lblstatus.BackColor = Color.Green;
-            }
-            else if (mensagem.Contains("Sem conexão") || mensagem.Contains("Erro"))
-            {
-                btnligar.BackColor = Color.Red;
-                btndesligar.BackColor = Color.Red;
-                lblstatus.BackColor = Color.Red;
+                // Se não estivermos na thread da UI, invoca o método na thread da UI
+                lblstatus.Invoke(new MethodInvoker(delegate { lblstatus.Text = mensagem; }));
             }
             else
             {
-                // Cor neutra se for outro tipo de mensagem
-                btnligar.BackColor = SystemColors.Control;
-                btndesligar.BackColor = SystemColors.Control;
+                // Se já estivermos na thread da UI, faz a atualização diretamente
+                lblstatus.Text = mensagem;
             }
         }
 
